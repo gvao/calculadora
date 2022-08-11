@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/index.css">
 
+    <script src="/scripts/index.js" type="module" defer></script>
+
     <title>Calculadora</title>
 </head>
 
@@ -18,7 +20,7 @@
     <main id="calculadora">
         <h1>Calculadora</h1>
         <div class="visor">
-            <span class="calculo">0</span>
+            <span class="resultado"></span>
             <button class="apagar">AC</button>
         </div>
 
@@ -43,7 +45,7 @@
                 <button id="subtrair">-</button>
             </div>
             <div class="linha">
-                <button id=".">.</button>
+                <button id="separador" class="number">.</button>
                 <button id="0" class="number">0</button>
                 <button id="igual">=</button>
                 <button id="somar">+</button>
