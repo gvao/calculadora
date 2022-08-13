@@ -2,7 +2,6 @@ import * as actions from "./actions.js"
 
 
 const $resultado = document.querySelector('.resultado')
-
 const $teclados = document.querySelector('.teclados')
 const $apagar = document.querySelector('.apagar')
 
@@ -16,6 +15,8 @@ const simbolos = {
     somar: "+",
     subtrair: "-",
 }
+
+
 
 const acoesDoTeclado = function (e) {
     const { target } = e
@@ -53,11 +54,10 @@ const realizarResultado = resultado => {
 
 const touchStartInWindow = 'ontouchstart' in window
 const myTap = touchStartInWindow ? 'touchstart' : 'click'
-alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
+// alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
 
-
+$teclados.addEventListener('touchstart', acoesDoTeclado)
 $teclados.addEventListener(myTap, acoesDoTeclado)
-
 $apagar.addEventListener("click", event => $resultado.innerText = ``)
 
 
