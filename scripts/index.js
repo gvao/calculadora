@@ -19,16 +19,20 @@ const simbolos = {
 
 
 const acoesDoTeclado = function (e) {
+    console.log(`acoesDoTeclado`)
     const { target } = e
     const { className, id } = target
     const isNumber = className === `number`
 
     if (id === `igual`) {
+        console.log(`Resultado`)
         realizarResultado($resultado)
-
+        
     } else if (isNumber) {
+        console.log(`is number`)
         $resultado.innerHTML += target.innerText
     } else if (sinalVerde) {
+        console.log(`acoes`)
         $resultado.innerHTML += target.innerText
         sinalVerde = false
     }
@@ -53,7 +57,7 @@ const realizarResultado = resultado => {
 }
 
 const touchStartInWindow = 'ontouchstart' in window
-const myTap = touchStartInWindow ? 'touchstart' : 'click'
+const myTap = touchStartInWindow ? 'touchstart' : 'clickdown'
 // alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
 
 $teclados.addEventListener('touchstart', acoesDoTeclado)
