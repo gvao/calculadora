@@ -51,7 +51,7 @@ const realizarResultado = resultado => {
     $resultado.innerText = action(primeiraParte, segundaParte)
 }
 
-const touchStartInWindow = ontouchstart in window
+const touchStartInWindow = 'ontouchstart' in window
 const myTap = touchStartInWindow ? 'touchstart' : 'click'
 alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
 
