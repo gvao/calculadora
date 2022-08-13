@@ -1,6 +1,8 @@
 import * as actions from "./actions.js"
 
+
 const $resultado = document.querySelector('.resultado')
+
 const $teclados = document.querySelector('.teclados')
 const $apagar = document.querySelector('.apagar')
 
@@ -15,9 +17,7 @@ const simbolos = {
     subtrair: "-",
 }
 
-$apagar.addEventListener("click", event => $resultado.innerText = ``)
-
-$teclados.addEventListener('click', function (e) {
+const acoesDoTeclado = function (e) {
     const { target } = e
     const { className, id } = target
     const isNumber = className === `number`
@@ -31,8 +31,7 @@ $teclados.addEventListener('click', function (e) {
         $resultado.innerHTML += target.innerText
         sinalVerde = false
     }
-})
-
+}
 const realizarResultado = resultado => {
     const simb = Object.entries(simbolos)
     const { innerText } = resultado
@@ -43,11 +42,24 @@ const realizarResultado = resultado => {
 
     const [name, simbol] = qualFunc
 
-    
+
     const action = actions[name]
     const letterArr = innerText.split("")
-    const [ primeiraParte, segundaParte ] = innerText.split(simbol)
-    
+    const [primeiraParte, segundaParte] = innerText.split(simbol)
+
     sinalVerde = true
     $resultado.innerText = action(primeiraParte, segundaParte)
 }
+
+const touchStartInWindow = ontouchstart in window
+const myTap = touchStartInWindow ? 'touchstart' : 'click'
+alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
+
+
+$teclados.addEventListener(myTap, acoesDoTeclado)
+
+$apagar.addEventListener("click", event => $resultado.innerText = ``)
+
+
+
+
