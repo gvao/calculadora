@@ -27,7 +27,7 @@ const acoesDoTeclado = function (e) {
     if (id === `igual`) {
         console.log(`Resultado`)
         realizarResultado($resultado)
-        
+
     } else if (isNumber) {
         console.log(`is number`)
         $resultado.innerHTML += target.innerText
@@ -56,12 +56,16 @@ const realizarResultado = resultado => {
     $resultado.innerText = action(primeiraParte, segundaParte)
 }
 
-const touchStartInWindow = 'ontouchstart' in window
-const myTap = touchStartInWindow ? 'touchstart' : 'clickdown'
-// alert(`${touchStartInWindow ? 'Suporta' : 'Não suporta'} touch started`)
+// const touchStartInWindow = 'ontouchstart' in window
+// const myTap = touchStartInWindow ? 'touchstart' : 'clickdown'
 
-$teclados.addEventListener('touchstart', acoesDoTeclado)
-$teclados.addEventListener(myTap, acoesDoTeclado)
+
+$teclados.addEventListener('click', acoesDoTeclado)
+
+$teclados.addEventListener("touchstart", event => {
+    console.log("touchstart", event)
+})
+
 $apagar.addEventListener("click", event => $resultado.innerText = ``)
 
 
