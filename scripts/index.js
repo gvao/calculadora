@@ -16,8 +16,6 @@ const simbolos = {
     subtrair: "-",
 }
 
-
-
 const acoesDoTeclado = function (e) {
     console.log(`acoesDoTeclado`)
     const { target } = e
@@ -25,7 +23,6 @@ const acoesDoTeclado = function (e) {
     const isNumber = className === `number`
 
     if (id === `igual`) {
-        console.log(`Resultado`)
         realizarResultado($resultado)
 
     } else if (isNumber) {
