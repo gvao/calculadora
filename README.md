@@ -2,7 +2,7 @@
 
 Uma calculadora simples desenvolvida com HTML, CSS e JavaScript.
 
-![Calculadora](screenshot.png)
+![Captura de Tela 2023-07-06 às 11 40 59](https://github.com/gvao/Calculadora/assets/90591430/03e16845-7ed2-4406-b75b-dba98598d2e5)
 
 ## Funcionalidades
 
